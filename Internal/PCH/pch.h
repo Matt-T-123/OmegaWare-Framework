@@ -67,7 +67,6 @@
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include <imgui.h>
 #include <imgui_stdlib.h>
-#include <imgui_freetype.h>
 #include "../GUI/Addons/imgui_addons.hpp"
 #include <imgui_impl_win32.h>
 

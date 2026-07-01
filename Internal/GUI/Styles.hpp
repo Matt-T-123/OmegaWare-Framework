@@ -73,7 +73,9 @@ inline void ImportFonts()
 	ImGuiIO& io = ImGui::GetIO();
 
     ImFontConfig cfg;
+#ifdef IMGUI_ENABLE_FREETYPE
     cfg.FontBuilderFlags |= ImGuiFreeTypeBuilderFlags::ImGuiFreeTypeBuilderFlags_ForceAutoHint;
+#endif
 
     // Build merged glyph ranges for all languages
     ImFontGlyphRangesBuilder builder;
@@ -100,7 +102,9 @@ inline void ImportFonts()
     static const ImWchar icons_ranges_brands[] = { ICON_MIN_FAB, ICON_MAX_16_FAB, 0 };
 
     ImFontConfig fa_config; fa_config.MergeMode = true; fa_config.PixelSnapH = true;
+#ifdef IMGUI_ENABLE_FREETYPE
     fa_config.FontBuilderFlags |= ImGuiFreeTypeBuilderFlags::ImGuiFreeTypeBuilderFlags_ForceAutoHint;
+#endif
 
     ImFont* fontAwesome = io.Fonts->AddFontFromMemoryCompressedTTF(fa6_solid_compressed_data, fa6_solid_compressed_size, 14, &fa_config, icons_ranges);
     ImFont* fontAwesomeBrands = io.Fonts->AddFontFromMemoryCompressedTTF(fa_brands_400_compressed_data, fa_brands_400_compressed_size, 14, &fa_config, icons_ranges_brands);
